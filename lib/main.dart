@@ -1,6 +1,9 @@
-import 'package:draw_app/art_canvas.dart';
+import 'package:draw_app/widgets/drawable_canvas.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'widgets/collapsible menu/collapsible_menu.dart';
+import 'widgets/collapsible menu/collapsible_menu_item.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const ArtCanvas(),
+      body: Stack(children: [
+        const DrawableCanvas(),
+        CollapsibleMenu(items: menuItems),
+      ]),
     );
   }
 }
