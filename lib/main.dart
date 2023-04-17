@@ -1,3 +1,4 @@
+import 'package:draw_app/art_canvas.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      body: const ArtCanvas(),
     );
   }
 }
