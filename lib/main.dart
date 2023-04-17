@@ -1,4 +1,5 @@
 import 'package:draw_app/widgets/drawable_canvas.dart';
+import 'package:draw_app/widgets/selection%20wheel/selection_wheel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -47,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Stack(children: [
         const DrawableCanvas(),
         CollapsibleMenu(items: menuItems),
+        const SelectionWheel(),
       ]),
     );
   }
