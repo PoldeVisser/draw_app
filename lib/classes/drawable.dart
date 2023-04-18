@@ -1,18 +1,43 @@
-abstract class DrawInterface {
+import 'package:flutter/material.dart';
+
+abstract class DrawableInterface {
+  late double size;
+  late Color color;
+
   void draw();
 }
 
-class Drawable implements DrawInterface {
+abstract class Drawable implements DrawableInterface {
   @override
-  draw() {
-    // TODO: implement draw
-    throw UnimplementedError();
+  Color color = Colors.black;
+
+  @override
+  double size = 1;
+
+  Drawable(this.size, this.color);
+
+  @override
+  void draw() {
+    print("drawing");
   }
 }
 
-class CircularDrawable extends Drawable {
-  final int radius;
-  final double hardness;
+class Brush extends Drawable {
+  double feather;
+  Brush({this.feather = 10}) : super(10, Colors.black);
 
-  CircularDrawable({required this.radius, required this.hardness});
+  @override
+  void draw() {
+    print("drawing with brush");
+  }
+}
+
+class Pencil extends Drawable {
+  double hardness;
+  Pencil({this.hardness = 10}) : super(10, Colors.black);
+
+  @override
+  void draw() {
+    print("drawing with pencul");
+  }
 }

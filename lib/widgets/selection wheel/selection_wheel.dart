@@ -1,3 +1,5 @@
+import 'package:draw_app/widgets/selection%20wheel/selection_wheel_items.dart';
+import 'package:draw_app/widgets/selection%20wheel/selection_wheel_painter.dart';
 import 'package:flutter/material.dart';
 
 class SelectionWheel extends StatefulWidget {
@@ -8,30 +10,11 @@ class SelectionWheel extends StatefulWidget {
 }
 
 class _SelectionWheelState extends State<SelectionWheel> {
-  bool _showMenu = false;
-
-  //temp test
-  double menuSize = 200;
-  Color menuColor = Colors.green;
-
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onLongPress: () {
-        print("long pressed");
-        setState(() {
-          _showMenu = true;
-        });
-      },
-      child: _showMenu
-          ? AnimatedContainer(
-              width: menuSize,
-              height: menuSize,
-              duration: const Duration(milliseconds: 300),
-              decoration:
-                  BoxDecoration(color: menuColor, shape: BoxShape.circle))
-          : Container(),
-    );
+    return CustomPaint(
+        painter: SelectionWheelPainter(items: items),
+        child: Container(),
+      );
   }
 }
