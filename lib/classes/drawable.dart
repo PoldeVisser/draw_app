@@ -38,6 +38,6 @@ class Pencil extends Drawable {
 
   @override
   void draw() {
-    print("drawing with pencul");
+    print("drawing with pencil");
   }
 }

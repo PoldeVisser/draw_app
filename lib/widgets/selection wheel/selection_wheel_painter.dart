@@ -12,7 +12,7 @@ class SelectionWheelPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Offset center = Offset(size.width / 2, size.height / 2);
-    final double radius = size.width / 8;
+    final double radius = size.width;
     final rect = Rect.fromCenter(center: center, width: radius, height: radius);
     double startAngle = 0;
     final double sweepAngle = (2 * pi) / items.length;

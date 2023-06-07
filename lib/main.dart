@@ -1,7 +1,10 @@
 import 'package:draw_app/widgets/drawable_canvas.dart';
 import 'package:draw_app/widgets/selection%20wheel/selection_wheel.dart';
+import 'package:draw_app/widgets/selection%20wheel/selection_wheel_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'classes/drawable.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +43,29 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: const [DrawableCanvas(), SelectionWheel()]),
+      body: Stack(
+        children: [
+          const DrawableCanvas(),
+          Center(
+            child: SelectionWheel(
+              items: [
+                SelectionWheelItem(
+                  drawable: Brush(),
+                ),
+                SelectionWheelItem(
+                  drawable: Pencil(),
+                ),
+                SelectionWheelItem(
+                  drawable: Pencil(),
+                ),
+                SelectionWheelItem(
+                  drawable: Pencil(),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
